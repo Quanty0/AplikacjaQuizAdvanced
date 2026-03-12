@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <>
-      <h1>Welcome to the Quiz App</h1>
+      <h1>Welcome to the Quiz Advanced App</h1>
       {user ? (
         <div>
           <p>

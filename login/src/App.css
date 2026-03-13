@@ -1,5 +1,5 @@
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -44,25 +44,45 @@
   .auth-form,
   .admin-panel,
   .quiz-form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 2rem auto;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background: #fafafa;
+    padding: 2.5rem;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: inherit;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .auth-form label,
   .quiz-form label {
     display: block;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: inherit;
+    text-align: left;
   }
 
   .auth-form input,
   .quiz-form input {
     width: 100%;
-    padding: 0.4rem;
-    margin-top: 0.2rem;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .auth-form input:focus,
+  .quiz-form input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
   }
 
   .small-btn {
@@ -75,11 +95,253 @@
   }
 
   .quiz-list {
-    max-width: 600px;
-    margin: 1rem auto;
+    max-width: 800px;
+    margin: 2rem auto;
     text-align: left;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .quiz-list ul {
-    list-style: disc inside;
+    list-style: none;
+    padding: 0;
+  }
+
+  .quiz-list li {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s;
+  }
+  .quiz-list li a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .quiz-list li a:hover {
+    color: #4f46e5;
+  }
+
+  .admin-panel ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .admin-panel li {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .questions {
+    margin-top: 2rem;
+  }
+
+  .question-block {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .answers {
+    margin-top: 1rem;
+  }
+
+  .answer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .answer input[type="radio"] {
+    margin-right: 0.5rem;
+  }
+
+  .answer input[type="text"] {
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+
+  .remove-btn {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  .remove-btn:hover {
+    background: #b91c1c;
+  }
+
+  .quiz-player {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    color: inherit;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .question {
+    margin-bottom: 2rem;
+  }
+
+  .answers {
+    text-align: left;
+    margin-top: 1rem;
+  }
+
+  .answer-option {
+    display: block;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .answer-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1));
+    border-radius: 16px;
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    color: #64748b;
+  }
+
+  .user-dashboard {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .user-info h2 {
+    margin-top: 0;
+  }
+
+  .admin-badge {
+    color: #4f46e5;
+    font-weight: bold;
+  }
+
+  .logout-btn {
+    margin-top: 1rem;
+  }
+
+  .admin-link {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .admin-link:hover {
+    text-decoration: underline;
+  }
+
+  .auth-section {
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .auth-link {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 0.5rem;
+  }
+  .auth-link:hover {
+    text-decoration: underline;
+  }
+
+  .quiz-list {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .quiz-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .quiz-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .quiz-card h3 {
+    margin-top: 0;
+    color: #4f46e5;
+  }
+
+  .play-btn {
+    display: inline-block;
+    background: #4f46e5;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .play-btn:hover {
+    background: #4338ca;
+  }
+
+  .edit-btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  .edit-btn:hover {
+    background: #4338ca;
   }

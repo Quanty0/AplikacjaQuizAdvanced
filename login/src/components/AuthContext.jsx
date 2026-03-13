@@ -75,6 +75,18 @@ export function AuthProvider({ children }) {
     saveQuizzes(newQuizzes);
   };
 
+  const updateQuiz = updatedQuiz => {
+    const newQuizzes = quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q);
+    setQuizzes(newQuizzes);
+    saveQuizzes(newQuizzes);
+  };
+
+  const deleteQuiz = id => {
+    const newQuizzes = quizzes.filter(q => q.id !== id);
+    setQuizzes(newQuizzes);
+    saveQuizzes(newQuizzes);
+  };
+
   const value = {
     user,
     register,
@@ -82,6 +94,8 @@ export function AuthProvider({ children }) {
     logout,
     quizzes,
     addQuiz,
+    updateQuiz,
+    deleteQuiz,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

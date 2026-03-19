@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -15,24 +16,16 @@ function saveUsers(users) {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-function loadQuizzes() {
-  const json = localStorage.getItem('quizzes');
-  return json ? JSON.parse(json) : [];
-}
-
-function saveQuizzes(quizzes) {
-  localStorage.setItem('quizzes', JSON.stringify(quizzes));
-}
-
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [quizzes, setQuizzes] = useState([]);
 
+  // Load quizzes from API on mount
   useEffect(() => {
-    setQuizzes(loadQuizzes());
+    fetchQuizzes();
   }, []);
 
-  // restore logged in user if any
+  // Restore logged in user if any
   useEffect(() => {
     const json = localStorage.getItem('currentUser');
     if (json) {
@@ -41,6 +34,18 @@ export function AuthProvider({ children }) {
       } catch {}
     }
   }, []);
+
+  const fetchQuizzes = async () => {
+    try {
+      const response = await fetch(`${API_URL}/quizzes`);
+      if (response.ok) {
+        const data = await response.json();
+        setQuizzes(data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch quizzes:', error);
+    }
+  };
 
   const register = ({ name, email, password, isAdmin = false }) => {
     const users = loadUsers();
@@ -69,22 +74,50 @@ export function AuthProvider({ children }) {
     localStorage.removeItem('currentUser');
   };
 
-  const addQuiz = quiz => {
-    const newQuizzes = [...quizzes, quiz];
-    setQuizzes(newQuizzes);
-    saveQuizzes(newQuizzes);
+  const addQuiz = async quiz => {
+    try {
+      const response = await fetch(`${API_URL}/quizzes`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(quiz),
+      });
+      if (response.ok) {
+        const newQuiz = await response.json();
+        setQuizzes([...quizzes, newQuiz]);
+      }
+    } catch (error) {
+      console.error('Failed to add quiz:', error);
+    }
   };
 
-  const updateQuiz = updatedQuiz => {
-    const newQuizzes = quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q);
-    setQuizzes(newQuizzes);
-    saveQuizzes(newQuizzes);
+  const updateQuiz = async updatedQuiz => {
+    try {
+      const response = await fetch(`${API_URL}/quizzes/${updatedQuiz.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedQuiz),
+      });
+      if (response.ok) {
+        const newQuizzes = quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q);
+        setQuizzes(newQuizzes);
+      }
+    } catch (error) {
+      console.error('Failed to update quiz:', error);
+    }
   };
 
-  const deleteQuiz = id => {
-    const newQuizzes = quizzes.filter(q => q.id !== id);
-    setQuizzes(newQuizzes);
-    saveQuizzes(newQuizzes);
+  const deleteQuiz = async id => {
+    try {
+      const response = await fetch(`${API_URL}/quizzes/${id}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        const newQuizzes = quizzes.filter(q => q.id !== id);
+        setQuizzes(newQuizzes);
+      }
+    } catch (error) {
+      console.error('Failed to delete quiz:', error);
+    }
   };
 
   const value = {

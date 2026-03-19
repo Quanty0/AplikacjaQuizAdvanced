@@ -1,0 +1,21 @@
+[
+  {
+    "title": "Quiz",
+    "questions": [
+      {
+        "text": "pytanie",
+        "answers": [
+          {
+            "text": "tak",
+            "isCorrect": true
+          },
+          {
+            "text": "nie",
+            "isCorrect": false
+          }
+        ]
+      }
+    ],
+    "id": 1773907127213
+  }
+]

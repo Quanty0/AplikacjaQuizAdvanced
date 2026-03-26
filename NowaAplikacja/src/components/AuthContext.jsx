@@ -76,17 +76,41 @@ export function AuthProvider({ children }) {
 
   const addQuiz = async quiz => {
     try {
+      // Validate quiz structure
+      if (!quiz.title || !quiz.questions || quiz.questions.length === 0) {
+        alert('Quiz must have a title and at least one question');
+        return;
+      }
+      
+      // Generate a unique ID if not present
+      const quizToAdd = {
+        ...quiz,
+        id: quiz.id || `quiz-${Date.now()}`,
+      };
+      
+      console.log('Adding quiz:', quizToAdd);
+      
       const response = await fetch(`${API_URL}/quizzes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(quiz),
+        body: JSON.stringify(quizToAdd),
       });
+      
+      console.log('Response status:', response.status);
+      
       if (response.ok) {
         const newQuiz = await response.json();
+        console.log('Quiz added successfully:', newQuiz);
         setQuizzes([...quizzes, newQuiz]);
+        alert('Quiz added successfully!');
+      } else {
+        const error = await response.json();
+        console.error('Server error:', error);
+        alert('Failed to add quiz: ' + (error.error || 'Unknown error'));
       }
     } catch (error) {
       console.error('Failed to add quiz:', error);
+      alert('Error adding quiz: ' + error.message);
     }
   };
 

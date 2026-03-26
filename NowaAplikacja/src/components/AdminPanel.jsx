@@ -11,7 +11,7 @@ export default function AdminPanel() {
   }
 
   const handleAdd = quiz => {
-    addQuiz({ ...quiz, id: Date.now() });
+    addQuiz(quiz);
   };
 
   const handleEdit = quiz => {

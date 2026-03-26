@@ -53,12 +53,16 @@ function Home() {
               <div key={q.id} className="quiz-card">
                 <div className="quiz-card-header">
                   <h3>{q.title}</h3>
-                  <span className={`difficulty-badge difficulty-${q.difficulty.toLowerCase()}`}>
-                    {q.difficulty}
-                  </span>
+                  {q.difficulty && (
+                    <span className={`difficulty-badge difficulty-${q.difficulty.toLowerCase()}`}>
+                      {q.difficulty}
+                    </span>
+                  )}
                 </div>
-                <p className="quiz-category">{q.category}</p>
-                <p className="quiz-questions">{q.questions.length} questions</p>
+                {q.category && <p className="quiz-category">{q.category}</p>}
+                <p className="quiz-questions">
+                  {q.questions && q.questions.length} {q.questions && q.questions.length === 1 ? 'question' : 'questions'}
+                </p>
                 <Link to={`/quiz/${q.id}`} className="play-btn">Play Quiz</Link>
               </div>
             ))}

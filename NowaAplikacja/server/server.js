@@ -23,18 +23,33 @@ async function loadQuizzes() {
   }
 }
 
-async function saveQuizzes(quizzes) {
-  await fs.writeFile(QUIZZES_FILE, JSON.stringify(quizzes, null, 2));
+async function saveQuizzes(data) {
+  // If data is an array of quizzes, wrap it in object format
+  if (Array.isArray(data)) {
+    const currentFile = await loadQuizzes();
+    const users = currentFile.users || [];
+    await fs.writeFile(QUIZZES_FILE, JSON.stringify({ users, quizzes: data }, null, 2));
+  } else {
+    await fs.writeFile(QUIZZES_FILE, JSON.stringify(data, null, 2));
+  }
 }
 
 // Get all quizzes
 app.get('/api/quizzes', async (req, res) => {
   try {
     const data = await loadQuizzes();
+    console.log('Loaded data:', data);
     // Extract only quizzes array from the file
-    const quizzes = data.quizzes || data;
+    let quizzes = [];
+    if (Array.isArray(data)) {
+      quizzes = data;
+    } else if (data && data.quizzes) {
+      quizzes = data.quizzes;
+    }
+    console.log('Returning quizzes:', quizzes);
     res.json(quizzes);
   } catch (error) {
+    console.error('Error loading quizzes:', error);
     res.status(500).json({ error: 'Failed to load quizzes' });
   }
 });
@@ -43,7 +58,7 @@ app.get('/api/quizzes', async (req, res) => {
 app.get('/api/quizzes/:id', async (req, res) => {
   try {
     const data = await loadQuizzes();
-    const quizzes = data.quizzes || data;
+    const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
     const quiz = quizzes.find(q => q.id === req.params.id);
     if (!quiz) {
       return res.status(404).json({ error: 'Quiz not found' });
@@ -57,13 +72,36 @@ app.get('/api/quizzes/:id', async (req, res) => {
 // Add new quiz
 app.post('/api/quizzes', async (req, res) => {
   try {
+    console.log('Received quiz data:', req.body);
     const newQuiz = req.body;
-    const quizzes = await loadQuizzes();
+    const data = await loadQuizzes();
+    
+    // Handle both array format and object format with quizzes property
+    let quizzes;
+    let isArrayFormat = Array.isArray(data);
+    
+    console.log('Current data format:', isArrayFormat ? 'array' : 'object');
+    
+    if (isArrayFormat) {
+      quizzes = data;
+    } else {
+      quizzes = data.quizzes || [];
+    }
+    
     quizzes.push(newQuiz);
-    await saveQuizzes(quizzes);
+    
+    // Save in the same format as it was loaded
+    if (isArrayFormat) {
+      await saveQuizzes(quizzes);
+    } else {
+      await saveQuizzes({ ...data, quizzes });
+    }
+    
+    console.log('Quiz saved successfully:', newQuiz);
     res.status(201).json(newQuiz);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to add quiz' });
+    console.error('Error adding quiz:', error);
+    res.status(500).json({ error: 'Failed to add quiz', details: error.message });
   }
 });
 
@@ -71,13 +109,29 @@ app.post('/api/quizzes', async (req, res) => {
 app.put('/api/quizzes/:id', async (req, res) => {
   try {
     const updatedQuiz = req.body;
-    const quizzes = await loadQuizzes();
+    const data = await loadQuizzes();
+    
+    let quizzes;
+    let isArrayFormat = Array.isArray(data);
+    
+    if (isArrayFormat) {
+      quizzes = data;
+    } else {
+      quizzes = data.quizzes || [];
+    }
+    
     const index = quizzes.findIndex(q => q.id === req.params.id);
     if (index === -1) {
       return res.status(404).json({ error: 'Quiz not found' });
     }
     quizzes[index] = updatedQuiz;
-    await saveQuizzes(quizzes);
+    
+    if (isArrayFormat) {
+      await saveQuizzes(quizzes);
+    } else {
+      await saveQuizzes({ ...data, quizzes });
+    }
+    
     res.json(updatedQuiz);
   } catch (error) {
     res.status(500).json({ error: 'Failed to update quiz' });
@@ -87,12 +141,28 @@ app.put('/api/quizzes/:id', async (req, res) => {
 // Delete quiz
 app.delete('/api/quizzes/:id', async (req, res) => {
   try {
-    const quizzes = await loadQuizzes();
+    const data = await loadQuizzes();
+    
+    let quizzes;
+    let isArrayFormat = Array.isArray(data);
+    
+    if (isArrayFormat) {
+      quizzes = data;
+    } else {
+      quizzes = data.quizzes || [];
+    }
+    
     const filteredQuizzes = quizzes.filter(q => q.id !== req.params.id);
     if (filteredQuizzes.length === quizzes.length) {
       return res.status(404).json({ error: 'Quiz not found' });
     }
-    await saveQuizzes(filteredQuizzes);
+    
+    if (isArrayFormat) {
+      await saveQuizzes(filteredQuizzes);
+    } else {
+      await saveQuizzes({ ...data, quizzes: filteredQuizzes });
+    }
+    
     res.json({ success: true });
   } catch (error) {
     res.status(500).json({ error: 'Failed to delete quiz' });

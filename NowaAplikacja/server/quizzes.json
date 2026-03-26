@@ -13,7 +13,6 @@
       "role": "user"
     }
   ],
-
   "quizzes": [
     {
       "id": "mat-1",
@@ -21,11 +20,61 @@
       "difficulty": "Łatwy",
       "title": "Podstawowe działania",
       "questions": [
-        { "id": 1, "questionText": "Ile to jest 15 + 27?", "options": ["32", "42", "45", "52"], "correctAnswer": "42" },
-        { "id": 2, "questionText": "Ile to jest 9 x 6?", "options": ["48", "54", "56", "63"], "correctAnswer": "54" },
-        { "id": 3, "questionText": "Połowa z 150 to:", "options": ["65", "70", "75", "80"], "correctAnswer": "75" },
-        { "id": 4, "questionText": "Ile minut ma godzina i kwadrans?", "options": ["65", "70", "75", "85"], "correctAnswer": "75" },
-        { "id": 5, "questionText": "Która liczba jest parzysta?", "options": ["11", "23", "44", "57"], "correctAnswer": "44" }
+        {
+          "id": 1,
+          "questionText": "Ile to jest 15 + 27?",
+          "options": [
+            "32",
+            "42",
+            "45",
+            "52"
+          ],
+          "correctAnswer": "42"
+        },
+        {
+          "id": 2,
+          "questionText": "Ile to jest 9 x 6?",
+          "options": [
+            "48",
+            "54",
+            "56",
+            "63"
+          ],
+          "correctAnswer": "54"
+        },
+        {
+          "id": 3,
+          "questionText": "Połowa z 150 to:",
+          "options": [
+            "65",
+            "70",
+            "75",
+            "80"
+          ],
+          "correctAnswer": "75"
+        },
+        {
+          "id": 4,
+          "questionText": "Ile minut ma godzina i kwadrans?",
+          "options": [
+            "65",
+            "70",
+            "75",
+            "85"
+          ],
+          "correctAnswer": "75"
+        },
+        {
+          "id": 5,
+          "questionText": "Która liczba jest parzysta?",
+          "options": [
+            "11",
+            "23",
+            "44",
+            "57"
+          ],
+          "correctAnswer": "44"
+        }
       ]
     },
     {
@@ -34,11 +83,61 @@
       "difficulty": "Trudny",
       "title": "Geometria i Logika",
       "questions": [
-        { "id": 1, "questionText": "Ile wynosi suma kątów w trójkącie?", "options": ["90°", "180°", "270°", "360°"], "correctAnswer": "180°" },
-        { "id": 2, "questionText": "Pole kwadratu o boku 5 cm wynosi:", "options": ["10 cm²", "20 cm²", "25 cm²", "50 cm²"], "correctAnswer": "25 cm²" },
-        { "id": 3, "questionText": "Ile krawędzi ma sześcian?", "options": ["6", "8", "10", "12"], "correctAnswer": "12" },
-        { "id": 4, "questionText": "Liczba pierwsza to:", "options": ["4", "9", "13", "15"], "correctAnswer": "13" },
-        { "id": 5, "questionText": "Wynik działania 2 + 2 * 2 to:", "options": ["4", "6", "8", "10"], "correctAnswer": "6" }
+        {
+          "id": 1,
+          "questionText": "Ile wynosi suma kątów w trójkącie?",
+          "options": [
+            "90°",
+            "180°",
+            "270°",
+            "360°"
+          ],
+          "correctAnswer": "180°"
+        },
+        {
+          "id": 2,
+          "questionText": "Pole kwadratu o boku 5 cm wynosi:",
+          "options": [
+            "10 cm²",
+            "20 cm²",
+            "25 cm²",
+            "50 cm²"
+          ],
+          "correctAnswer": "25 cm²"
+        },
+        {
+          "id": 3,
+          "questionText": "Ile krawędzi ma sześcian?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "12"
+          ],
+          "correctAnswer": "12"
+        },
+        {
+          "id": 4,
+          "questionText": "Liczba pierwsza to:",
+          "options": [
+            "4",
+            "9",
+            "13",
+            "15"
+          ],
+          "correctAnswer": "13"
+        },
+        {
+          "id": 5,
+          "questionText": "Wynik działania 2 + 2 * 2 to:",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "10"
+          ],
+          "correctAnswer": "6"
+        }
       ]
     },
     {
@@ -47,11 +146,61 @@
       "difficulty": "Łatwy",
       "title": "Podstawy Webu",
       "questions": [
-        { "id": 1, "questionText": "Co oznacza skrót HTML?", "options": ["HyperText Markup Language", "High Tech Modern Language", "Hyperlink Text Mode", "Home Tool Markup Language"], "correctAnswer": "HyperText Markup Language" },
-        { "id": 2, "questionText": "Który tag odpowiada za największy nagłówek?", "options": ["<head>", "<h6>", "<header>", "<h1>"], "correctAnswer": "<h1>" },
-        { "id": 3, "questionText": "Jak zadeklarować zmienną w nowoczesnym JS?", "options": ["var", "let", "const", "Obie odpowiedzi: let i const"], "correctAnswer": "Obie odpowiedzi: let i const" },
-        { "id": 4, "questionText": "Jaki kolor tła ustawi 'background-color: #000'?", "options": ["Biały", "Czerwony", "Niebieski", "Czarny"], "correctAnswer": "Czarny" },
-        { "id": 5, "questionText": "Co robi komenda console.log()?", "options": ["Zamyka okno", "Wyświetla tekst w konsoli", "Czyści pamięć", "Tworzy plik"], "correctAnswer": "Wyświetla tekst w konsoli" }
+        {
+          "id": 1,
+          "questionText": "Co oznacza skrót HTML?",
+          "options": [
+            "HyperText Markup Language",
+            "High Tech Modern Language",
+            "Hyperlink Text Mode",
+            "Home Tool Markup Language"
+          ],
+          "correctAnswer": "HyperText Markup Language"
+        },
+        {
+          "id": 2,
+          "questionText": "Który tag odpowiada za największy nagłówek?",
+          "options": [
+            "<head>",
+            "<h6>",
+            "<header>",
+            "<h1>"
+          ],
+          "correctAnswer": "<h1>"
+        },
+        {
+          "id": 3,
+          "questionText": "Jak zadeklarować zmienną w nowoczesnym JS?",
+          "options": [
+            "var",
+            "let",
+            "const",
+            "Obie odpowiedzi: let i const"
+          ],
+          "correctAnswer": "Obie odpowiedzi: let i const"
+        },
+        {
+          "id": 4,
+          "questionText": "Jaki kolor tła ustawi 'background-color: #000'?",
+          "options": [
+            "Biały",
+            "Czerwony",
+            "Niebieski",
+            "Czarny"
+          ],
+          "correctAnswer": "Czarny"
+        },
+        {
+          "id": 5,
+          "questionText": "Co robi komenda console.log()?",
+          "options": [
+            "Zamyka okno",
+            "Wyświetla tekst w konsoli",
+            "Czyści pamięć",
+            "Tworzy plik"
+          ],
+          "correctAnswer": "Wyświetla tekst w konsoli"
+        }
       ]
     },
     {
@@ -60,11 +209,61 @@
       "difficulty": "Trudny",
       "title": "Zaawansowany React i JS",
       "questions": [
-        { "id": 1, "questionText": "Czym jest Hook useState?", "options": ["Funkcją do zarządzania stanem", "Klasą CSS", "Typem danych", "Tagiem HTML"], "correctAnswer": "Funkcją do zarządzania stanem" },
-        { "id": 2, "questionText": "Co to jest Closure (domknięcie)?", "options": ["Błąd w kodzie", "Funkcja z dostępem do zasięgu zewnętrznego", "Metoda zamykania bazy", "Sposób na wyłączenie serwera"], "correctAnswer": "Funkcja z dostępem do zasięgu zewnętrznego" },
-        { "id": 3, "questionText": "Jaki jest wynik: typeof null?", "options": ["'null'", "'undefined'", "'object'", "'string'"], "correctAnswer": "'object'" },
-        { "id": 4, "questionText": "Która metoda służy do renderowania list w React?", "options": ["filter()", "find()", "map()", "forEach()"], "correctAnswer": "map()" },
-        { "id": 5, "questionText": "Do czego służy useEffect?", "options": ["Do stylizacji", "Do efektów ubocznych (np. API)", "Do tworzenia formularzy", "Do usuwania plików"], "correctAnswer": "Do efektów ubocznych (np. API)" }
+        {
+          "id": 1,
+          "questionText": "Czym jest Hook useState?",
+          "options": [
+            "Funkcją do zarządzania stanem",
+            "Klasą CSS",
+            "Typem danych",
+            "Tagiem HTML"
+          ],
+          "correctAnswer": "Funkcją do zarządzania stanem"
+        },
+        {
+          "id": 2,
+          "questionText": "Co to jest Closure (domknięcie)?",
+          "options": [
+            "Błąd w kodzie",
+            "Funkcja z dostępem do zasięgu zewnętrznego",
+            "Metoda zamykania bazy",
+            "Sposób na wyłączenie serwera"
+          ],
+          "correctAnswer": "Funkcja z dostępem do zasięgu zewnętrznego"
+        },
+        {
+          "id": 3,
+          "questionText": "Jaki jest wynik: typeof null?",
+          "options": [
+            "'null'",
+            "'undefined'",
+            "'object'",
+            "'string'"
+          ],
+          "correctAnswer": "'object'"
+        },
+        {
+          "id": 4,
+          "questionText": "Która metoda służy do renderowania list w React?",
+          "options": [
+            "filter()",
+            "find()",
+            "map()",
+            "forEach()"
+          ],
+          "correctAnswer": "map()"
+        },
+        {
+          "id": 5,
+          "questionText": "Do czego służy useEffect?",
+          "options": [
+            "Do stylizacji",
+            "Do efektów ubocznych (np. API)",
+            "Do tworzenia formularzy",
+            "Do usuwania plików"
+          ],
+          "correctAnswer": "Do efektów ubocznych (np. API)"
+        }
       ]
     },
     {
@@ -73,11 +272,61 @@
       "difficulty": "Łatwy",
       "title": "Państwa i Miasta",
       "questions": [
-        { "id": 1, "questionText": "Stolica Polski to:", "options": ["Kraków", "Wrocław", "Warszawa", "Gdańsk"], "correctAnswer": "Warszawa" },
-        { "id": 2, "questionText": "Na jakim kontynencie leży Brazylia?", "options": ["Afryka", "Azja", "Ameryka Południowa", "Europa"], "correctAnswer": "Ameryka Południowa" },
-        { "id": 3, "questionText": "Która rzeka jest najdłuższa w Polsce?", "options": ["Odra", "Warta", "Wisła", "Bug"], "correctAnswer": "Wisła" },
-        { "id": 4, "questionText": "W którym kraju leży Wieża Eiffla?", "options": ["Niemcy", "Włochy", "Francja", "Hiszpania"], "correctAnswer": "Francja" },
-        { "id": 5, "questionText": "Ile kontynentów jest na Ziemi?", "options": ["5", "6", "7", "8"], "correctAnswer": "7" }
+        {
+          "id": 1,
+          "questionText": "Stolica Polski to:",
+          "options": [
+            "Kraków",
+            "Wrocław",
+            "Warszawa",
+            "Gdańsk"
+          ],
+          "correctAnswer": "Warszawa"
+        },
+        {
+          "id": 2,
+          "questionText": "Na jakim kontynencie leży Brazylia?",
+          "options": [
+            "Afryka",
+            "Azja",
+            "Ameryka Południowa",
+            "Europa"
+          ],
+          "correctAnswer": "Ameryka Południowa"
+        },
+        {
+          "id": 3,
+          "questionText": "Która rzeka jest najdłuższa w Polsce?",
+          "options": [
+            "Odra",
+            "Warta",
+            "Wisła",
+            "Bug"
+          ],
+          "correctAnswer": "Wisła"
+        },
+        {
+          "id": 4,
+          "questionText": "W którym kraju leży Wieża Eiffla?",
+          "options": [
+            "Niemcy",
+            "Włochy",
+            "Francja",
+            "Hiszpania"
+          ],
+          "correctAnswer": "Francja"
+        },
+        {
+          "id": 5,
+          "questionText": "Ile kontynentów jest na Ziemi?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "correctAnswer": "7"
+        }
       ]
     },
     {
@@ -86,11 +335,61 @@
       "difficulty": "Trudny",
       "title": "Szczyty i Rekordy",
       "questions": [
-        { "id": 1, "questionText": "Jak nazywa się najwyższy szczyt Ziemi?", "options": ["K2", "Lhotse", "Mount Everest", "Makalu"], "correctAnswer": "Mount Everest" },
-        { "id": 2, "questionText": "Jakie jest najgłębsze jezioro świata?", "options": ["Wigry", "Bajkał", "Michigan", "Kaspijskie"], "correctAnswer": "Bajkał" },
-        { "id": 3, "questionText": "Który kraj jest największy pod względem powierzchni?", "options": ["Chiny", "USA", "Kanada", "Rosja"], "correctAnswer": "Rosja" },
-        { "id": 4, "questionText": "W którym państwie leży Pustynia Gobi?", "options": ["Egipt", "Mongolia", "Australia", "Chile"], "correctAnswer": "Mongolia" },
-        { "id": 5, "questionText": "Jaka waluta obowiązuje w Japonii?", "options": ["Juan", "Won", "Jen", "Dolar"], "correctAnswer": "Jen" }
+        {
+          "id": 1,
+          "questionText": "Jak nazywa się najwyższy szczyt Ziemi?",
+          "options": [
+            "K2",
+            "Lhotse",
+            "Mount Everest",
+            "Makalu"
+          ],
+          "correctAnswer": "Mount Everest"
+        },
+        {
+          "id": 2,
+          "questionText": "Jakie jest najgłębsze jezioro świata?",
+          "options": [
+            "Wigry",
+            "Bajkał",
+            "Michigan",
+            "Kaspijskie"
+          ],
+          "correctAnswer": "Bajkał"
+        },
+        {
+          "id": 3,
+          "questionText": "Który kraj jest największy pod względem powierzchni?",
+          "options": [
+            "Chiny",
+            "USA",
+            "Kanada",
+            "Rosja"
+          ],
+          "correctAnswer": "Rosja"
+        },
+        {
+          "id": 4,
+          "questionText": "W którym państwie leży Pustynia Gobi?",
+          "options": [
+            "Egipt",
+            "Mongolia",
+            "Australia",
+            "Chile"
+          ],
+          "correctAnswer": "Mongolia"
+        },
+        {
+          "id": 5,
+          "questionText": "Jaka waluta obowiązuje w Japonii?",
+          "options": [
+            "Juan",
+            "Won",
+            "Jen",
+            "Dolar"
+          ],
+          "correctAnswer": "Jen"
+        }
       ]
     },
     {
@@ -99,11 +398,61 @@
       "difficulty": "Łatwy",
       "title": "Świat Filmu",
       "questions": [
-        { "id": 1, "questionText": "Kto jest głównym bohaterem serii Harry Potter?", "options": ["Ron Weasley", "Harry Potter", "Severus Snape", "Albus Dumbledore"], "correctAnswer": "Harry Potter" },
-        { "id": 2, "questionText": "Jak nazywa się zielony ogr z popularnej bajki?", "options": ["Shrek", "Fiona", "Osioł", "Lord Farquaad"], "correctAnswer": "Shrek" },
-        { "id": 3, "questionText": "Która wytwórnia stworzyła Myszkę Miki?", "options": ["Pixar", "Warner Bros", "Disney", "DreamWorks"], "correctAnswer": "Disney" },
-        { "id": 4, "questionText": "W jakim mieście mieszka Batman?", "options": ["Metropolis", "Gotham City", "New York", "Central City"], "correctAnswer": "Gotham City" },
-        { "id": 5, "questionText": "Jak ma na imię lalka, która doczekała się filmu w 2023 roku?", "options": ["Bratz", "Barbie", "Polly Pocket", "Chucky"], "correctAnswer": "Barbie" }
+        {
+          "id": 1,
+          "questionText": "Kto jest głównym bohaterem serii Harry Potter?",
+          "options": [
+            "Ron Weasley",
+            "Harry Potter",
+            "Severus Snape",
+            "Albus Dumbledore"
+          ],
+          "correctAnswer": "Harry Potter"
+        },
+        {
+          "id": 2,
+          "questionText": "Jak nazywa się zielony ogr z popularnej bajki?",
+          "options": [
+            "Shrek",
+            "Fiona",
+            "Osioł",
+            "Lord Farquaad"
+          ],
+          "correctAnswer": "Shrek"
+        },
+        {
+          "id": 3,
+          "questionText": "Która wytwórnia stworzyła Myszkę Miki?",
+          "options": [
+            "Pixar",
+            "Warner Bros",
+            "Disney",
+            "DreamWorks"
+          ],
+          "correctAnswer": "Disney"
+        },
+        {
+          "id": 4,
+          "questionText": "W jakim mieście mieszka Batman?",
+          "options": [
+            "Metropolis",
+            "Gotham City",
+            "New York",
+            "Central City"
+          ],
+          "correctAnswer": "Gotham City"
+        },
+        {
+          "id": 5,
+          "questionText": "Jak ma na imię lalka, która doczekała się filmu w 2023 roku?",
+          "options": [
+            "Bratz",
+            "Barbie",
+            "Polly Pocket",
+            "Chucky"
+          ],
+          "correctAnswer": "Barbie"
+        }
       ]
     },
     {
@@ -112,12 +461,105 @@
       "difficulty": "Trudny",
       "title": "Historia i Ciekawostki",
       "questions": [
-        { "id": 1, "questionText": "Który film zdobył Oscara za najlepszy film w 2020 roku?", "options": ["1917", "Joker", "Parasite", "Irlandczyk"], "correctAnswer": "Parasite" },
-        { "id": 2, "questionText": "Jak nazywa się reżyser filmu 'Incepcja'?", "options": ["Steven Spielberg", "Quentin Tarantino", "Christopher Nolan", "Martin Scorsese"], "correctAnswer": "Christopher Nolan" },
-        { "id": 3, "questionText": "W którym roku wyszedł pierwszy iPhone?", "options": ["2005", "2007", "2009", "2010"], "correctAnswer": "2007" },
-        { "id": 4, "questionText": "Z którego kraju pochodzi zespół ABBA?", "options": ["Norwegia", "Dania", "Szwecja", "Finlandia"], "correctAnswer": "Szwecja" },
-        { "id": 5, "questionText": "Który serial Netflixa stał się najchętniej oglądanym w 2021 (Korea)?", "options": ["Dark", "Lupin", "Squid Game", "The Crown"], "correctAnswer": "Squid Game" }
+        {
+          "id": 1,
+          "questionText": "Który film zdobył Oscara za najlepszy film w 2020 roku?",
+          "options": [
+            "1917",
+            "Joker",
+            "Parasite",
+            "Irlandczyk"
+          ],
+          "correctAnswer": "Parasite"
+        },
+        {
+          "id": 2,
+          "questionText": "Jak nazywa się reżyser filmu 'Incepcja'?",
+          "options": [
+            "Steven Spielberg",
+            "Quentin Tarantino",
+            "Christopher Nolan",
+            "Martin Scorsese"
+          ],
+          "correctAnswer": "Christopher Nolan"
+        },
+        {
+          "id": 3,
+          "questionText": "W którym roku wyszedł pierwszy iPhone?",
+          "options": [
+            "2005",
+            "2007",
+            "2009",
+            "2010"
+          ],
+          "correctAnswer": "2007"
+        },
+        {
+          "id": 4,
+          "questionText": "Z którego kraju pochodzi zespół ABBA?",
+          "options": [
+            "Norwegia",
+            "Dania",
+            "Szwecja",
+            "Finlandia"
+          ],
+          "correctAnswer": "Szwecja"
+        },
+        {
+          "id": 5,
+          "questionText": "Który serial Netflixa stał się najchętniej oglądanym w 2021 (Korea)?",
+          "options": [
+            "Dark",
+            "Lupin",
+            "Squid Game",
+            "The Crown"
+          ],
+          "correctAnswer": "Squid Game"
+        }
       ]
+    },
+    {
+      "title": "Słówka",
+      "category": "Angielski",
+      "difficulty": "Średni",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Egg",
+          "options": [
+            "Jajko",
+            "Pies"
+          ],
+          "correctAnswer": "Jajko"
+        },
+        {
+          "id": 2,
+          "questionText": "Beef",
+          "options": [
+            "Wołowina",
+            "beef na noże"
+          ],
+          "correctAnswer": "beef na noże"
+        }
+      ],
+      "id": "quiz-1774510920856"
+    },
+    {
+      "title": "aa",
+      "category": "aaa",
+      "difficulty": "Trudny",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "aaaa",
+          "options": [
+            "aa",
+            "bbb"
+          ],
+          "correctAnswer": "bbb"
+        }
+      ],
+      "id": "quiz-1774511531695"
     }
   ]
 }

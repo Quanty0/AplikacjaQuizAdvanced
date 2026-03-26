@@ -2,51 +2,58 @@ import { useState, useEffect } from 'react';
 
 export default function QuizForm({ onAdd, initialQuiz = null }) {
   const [title, setTitle] = useState(initialQuiz?.title || '');
+  const [category, setCategory] = useState(initialQuiz?.category || '');
+  const [difficulty, setDifficulty] = useState(initialQuiz?.difficulty || 'Łatwy');
   const [questions, setQuestions] = useState(
     initialQuiz?.questions || [
-      { text: '', answers: [{ text: '', isCorrect: false }, { text: '', isCorrect: false }] }
+      { id: 1, questionText: '', options: ['', ''], correctAnswer: '' }
     ]
   );
 
   useEffect(() => {
     if (initialQuiz) {
       setTitle(initialQuiz.title);
+      setCategory(initialQuiz.category);
+      setDifficulty(initialQuiz.difficulty);
       setQuestions(initialQuiz.questions);
     }
   }, [initialQuiz]);
 
   const handleQuestionChange = (qIndex, value) => {
     const newQs = [...questions];
-    newQs[qIndex].text = value;
+    newQs[qIndex].questionText = value;
     setQuestions(newQs);
   };
 
-  const handleAnswerChange = (qIndex, aIndex, value) => {
+  const handleOptionChange = (qIndex, optIndex, value) => {
     const newQs = [...questions];
-    newQs[qIndex].answers[aIndex].text = value;
+    newQs[qIndex].options[optIndex] = value;
     setQuestions(newQs);
   };
 
-  const handleCorrectChange = (qIndex, aIndex) => {
+  const handleCorrectAnswerChange = (qIndex, value) => {
     const newQs = [...questions];
-    newQs[qIndex].answers = newQs[qIndex].answers.map((a, i) => ({ ...a, isCorrect: i === aIndex }));
+    newQs[qIndex].correctAnswer = value;
     setQuestions(newQs);
   };
 
-  const addAnswer = (qIndex) => {
+  const addOption = (qIndex) => {
     const newQs = [...questions];
-    newQs[qIndex].answers.push({ text: '', isCorrect: false });
+    newQs[qIndex].options.push('');
     setQuestions(newQs);
   };
 
-  const removeAnswer = (qIndex, aIndex) => {
+  const removeOption = (qIndex, optIndex) => {
     const newQs = [...questions];
-    newQs[qIndex].answers.splice(aIndex, 1);
-    setQuestions(newQs);
+    if (newQs[qIndex].options.length > 2) {
+      newQs[qIndex].options.splice(optIndex, 1);
+      setQuestions(newQs);
+    }
   };
 
   const addQuestion = () => {
-    setQuestions([...questions, { text: '', answers: [{ text: '', isCorrect: false }, { text: '', isCorrect: false }] }]);
+    const newId = Math.max(...questions.map(q => q.id), 0) + 1;
+    setQuestions([...questions, { id: newId, questionText: '', options: ['', ''], correctAnswer: '' }]);
   };
 
   const removeQuestion = (qIdx) => {
@@ -59,62 +66,122 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const quiz = initialQuiz ? { ...initialQuiz, title, questions } : { title, questions };
+    
+    // Validate that all fields are filled
+    const isValid = 
+      title.trim() && 
+      category.trim() && 
+      questions.every(q => 
+        q.questionText.trim() && 
+        q.options.length >= 2 && 
+        q.options.every(o => o.trim()) && 
+        q.correctAnswer.trim() &&
+        q.options.includes(q.correctAnswer)
+      );
+    
+    if (!isValid) {
+      alert('Please fill in all fields. Each question must have text, at least 2 options, and a correct answer that matches one of the options.');
+      return;
+    }
+    
+    const quiz = initialQuiz 
+      ? { ...initialQuiz, title, category, difficulty, questions } 
+      : { title, category, difficulty, questions };
     onAdd(quiz);
     if (!initialQuiz) {
       setTitle('');
-      setQuestions([{ text: '', answers: [{ text: '', isCorrect: false }, { text: '', isCorrect: false }] }]);
+      setCategory('');
+      setDifficulty('Łatwy');
+      setQuestions([{ id: 1, questionText: '', options: ['', ''], correctAnswer: '' }]);
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="quiz-form">
-      <div>
-        <label>Quiz Title</label>
-        <input type="text" value={title} onChange={e => setTitle(e.target.value)} required />
+      <h3>Basic Information</h3>
+      <div className="form-row">
+        <div className="form-group">
+          <label>Quiz Title *</label>
+          <input 
+            type="text" 
+            value={title} 
+            onChange={e => setTitle(e.target.value)} 
+            placeholder="e.g., Mathematics Basics"
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label>Category *</label>
+          <input 
+            type="text" 
+            value={category} 
+            onChange={e => setCategory(e.target.value)} 
+            placeholder="e.g., Matematyka"
+            required 
+          />
+        </div>
+        <div className="form-group">
+          <label>Difficulty *</label>
+          <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
+            <option value="Łatwy">Łatwy (Easy)</option>
+            <option value="Średni">Średni (Medium)</option>
+            <option value="Trudny">Trudny (Hard)</option>
+          </select>
+        </div>
       </div>
+
+      <h3>Questions</h3>
       <div className="questions">
         {questions.map((q, qIdx) => (
           <div key={qIdx} className="question-block">
-            <label>Question {qIdx + 1}</label>
+            <div className="question-header">
+              <label>Question {qIdx + 1}</label>
+              {questions.length > 1 && (
+                <button type="button" onClick={() => removeQuestion(qIdx)} className="remove-btn-small">✕</button>
+              )}
+            </div>
             <input
               type="text"
-              value={q.text}
+              value={q.questionText}
               onChange={e => handleQuestionChange(qIdx, e.target.value)}
               placeholder="Enter question text"
               required
             />
-            <div className="answers">
-              {q.answers.map((a, aIdx) => (
-                <div key={aIdx} className="answer">
+            
+            <div className="options-section">
+              <label>Answer Options *</label>
+              {q.options.map((opt, optIdx) => (
+                <div key={optIdx} className="option-item">
                   <input
                     type="radio"
                     name={`correct-${qIdx}`}
-                    checked={a.isCorrect}
-                    onChange={() => handleCorrectChange(qIdx, aIdx)}
+                    value={opt}
+                    checked={q.correctAnswer === opt}
+                    onChange={() => handleCorrectAnswerChange(qIdx, opt)}
+                    disabled={!opt}
                   />
                   <input
                     type="text"
-                    value={a.text}
-                    onChange={e => handleAnswerChange(qIdx, aIdx, e.target.value)}
-                    placeholder={`Answer ${aIdx + 1}`}
+                    value={opt}
+                    onChange={e => handleOptionChange(qIdx, optIdx, e.target.value)}
+                    placeholder={`Option ${optIdx + 1}`}
                     required
                   />
-                  {q.answers.length > 2 && (
-                    <button type="button" onClick={() => removeAnswer(qIdx, aIdx)} className="remove-btn">Remove</button>
+                  {q.options.length > 2 && (
+                    <button type="button" onClick={() => removeOption(qIdx, optIdx)} className="remove-btn-small">✕</button>
                   )}
                 </div>
               ))}
             </div>
-            <button type="button" onClick={() => addAnswer(qIdx)} className="small-btn">+ Add Answer</button>
-            {questions.length > 1 && (
-              <button type="button" onClick={() => removeQuestion(qIdx)} className="remove-btn">Remove Question</button>
-            )}
+            <button type="button" onClick={() => addOption(qIdx)} className="small-btn">+ Add Option</button>
           </div>
         ))}
       </div>
-      <button type="button" onClick={addQuestion} className="small-btn">+ Add Question</button>
-      <button type="submit">{initialQuiz ? 'Update Quiz' : 'Create Quiz'}</button>
+
+      <div className="form-actions">
+        <button type="button" onClick={addQuestion} className="small-btn">+ Add Question</button>
+        <button type="submit" className="submit-btn">{initialQuiz ? 'Update Quiz' : 'Create Quiz'}</button>
+      </div>
     </form>
   );
 }

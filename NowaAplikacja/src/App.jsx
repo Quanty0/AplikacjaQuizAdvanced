@@ -17,53 +17,73 @@ function Home() {
   const { user, logout, quizzes } = useAuth()
 
   return (
-    <div className="home-page">
-      <header className="hero">
-        <h1>Welcome to the Quiz Advanced App</h1>
-        <p>Test your knowledge with our interactive quizzes!</p>
-      </header>
+    <div className="home-container">
+      <section className="hero-section">
+        <div className="hero-content">
+          <h1>Quiz Advanced</h1>
+          <p className="hero-subtitle">Rozwijaj swoją wiedzę z interaktywnymi quizami</p>
+        </div>
+      </section>
+
       {user ? (
-        <section className="user-dashboard">
-          <div className="user-info">
-            <h2>Dashboard</h2>
-            <p>
-              Signed in as <strong>{user.name}</strong> ({user.email}){' '}
-              {user.isAdmin && <span className="admin-badge">[admin]</span>}
-            </p>
-            <button onClick={logout} className="logout-btn">Log out</button>
-            {user.isAdmin && (
-              <p>
-                <Link to="/admin" className="admin-link">Go to Admin Panel</Link>
-              </p>
-            )}
+        <section className="dashboard-section">
+          <div className="dashboard-card">
+            <div className="dashboard-header">
+              <div>
+                <h2>Witaj, {user.name}!</h2>
+                <p className="dashboard-email">{user.email}</p>
+              </div>
+              {user.isAdmin && <span className="admin-badge">Admin</span>}
+            </div>
+            <div className="dashboard-actions">
+              {user.isAdmin && (
+                <Link to="/admin" className="action-btn admin-btn">
+                  <span className="btn-icon">⚙️</span> Panel Administratora
+                </Link>
+              )}
+              <button onClick={logout} className="action-btn logout-btn">
+                <span className="btn-icon">🚪</span> Wyloguj się
+              </button>
+            </div>
           </div>
         </section>
       ) : (
-        <section className="auth-section">
-          <p>
-            <Link to="/login" className="auth-link">Login</Link> or <Link to="/register" className="auth-link">Register</Link> to get started
-          </p>
+        <section className="auth-prompt">
+          <div className="auth-card">
+            <h2>Zaloguj się lub załóż konto</h2>
+            <p>Aby rozwiązywać quizy, musisz być zalogowany</p>
+            <div className="auth-buttons">
+              <Link to="/login" className="auth-btn login-btn">Zaloguj się</Link>
+              <Link to="/register" className="auth-btn register-btn">Załóż konto</Link>
+            </div>
+          </div>
         </section>
       )}
+
       {quizzes && quizzes.length > 0 && (
-        <section className="quiz-list">
-          <h2>Available Quizzes</h2>
+        <section className="quizzes-section">
+          <div className="section-header">
+            <h2>Dostępne Quizy</h2>
+            <p className="section-subtitle">Wybierz quiz i sprawdź swoją wiedzę</p>
+          </div>
           <div className="quiz-grid">
             {quizzes.map(q => (
-              <div key={q.id} className="quiz-card">
-                <div className="quiz-card-header">
-                  <h3>{q.title}</h3>
-                  {q.difficulty && (
-                    <span className={`difficulty-badge difficulty-${q.difficulty.toLowerCase()}`}>
-                      {q.difficulty}
-                    </span>
-                  )}
+              <div key={q.id} className="quiz-card-new">
+                <div className="card-category">
+                  <span className="category-tag">{q.category || 'Ogólne'}</span>
                 </div>
-                {q.category && <p className="quiz-category">{q.category}</p>}
-                <p className="quiz-questions">
-                  {q.questions && q.questions.length} {q.questions && q.questions.length === 1 ? 'question' : 'questions'}
-                </p>
-                <Link to={`/quiz/${q.id}`} className="play-btn">Play Quiz</Link>
+                <h3 className="card-title">{q.title}</h3>
+                <div className="card-meta">
+                  <span className={`difficulty-badge difficulty-${q.difficulty?.toLowerCase() || 'średni'}`}>
+                    {q.difficulty || 'Średni'}
+                  </span>
+                  <span className="questions-count">
+                    {q.questions?.length || 0} pytań
+                  </span>
+                </div>
+                <Link to={`/quiz/${q.id}`} className="play-button">
+                  Rozwiąż Quiz <span className="arrow">→</span>
+                </Link>
               </div>
             ))}
           </div>
@@ -77,17 +97,18 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <div className="app">
-          <div className="app__header">
-            <div>
-              <h1>Quiz Advanced</h1>
-              <p>Test your knowledge with interactive quizzes</p>
-            </div>
-            <div className="app__nav">
+        <div className="app-wrapper">
+          <nav className="navbar">
+            <Link to="/" className="navbar-brand">
+              <span className="brand-icon">🎯</span>
+              <span className="brand-text">Quiz Advanced</span>
+            </Link>
+            <div className="navbar-nav">
               <AuthLink />
             </div>
-          </div>
-          <div className="app__content">
+          </nav>
+
+          <div className="app-container">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
@@ -97,44 +118,42 @@ function App() {
               <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>
-          <div className="app__footer">
-            <p>© 2026 Quiz Advanced. All rights reserved.</p>
-          </div>
+
+          <footer className="app-footer">
+            <div className="footer-content">
+              <p>&copy; 2026 Quiz Advanced. Wszystkie prawa zastrzeżone.</p>
+            </div>
+          </footer>
         </div>
       </Router>
     </AuthProvider>
   )
 }
-  // remove stray closing brace
 
 function AuthLink() {
   const { user, logout } = useAuth();
   if (user && user.isAdmin) {
     return (
-      <>
-        <div className="app__user">
-          {user.name}
-        </div>
-        <Link to="/admin" className="button button--secondary">Admin Panel</Link>
-        <button onClick={logout} className="button button--secondary">Log Out</button>
-      </>
+      <div className="auth-links">
+        <span className="user-name">{user.name}</span>
+        <Link to="/admin" className="nav-link nav-link-secondary">Admin</Link>
+        <button onClick={logout} className="nav-link nav-btn">Wyloguj</button>
+      </div>
     );
   }
   if (user) {
     return (
-      <>
-        <div className="app__user">
-          {user.name}
-        </div>
-        <button onClick={logout} className="button button--secondary">Log Out</button>
-      </>
+      <div className="auth-links">
+        <span className="user-name">{user.name}</span>
+        <button onClick={logout} className="nav-link nav-btn">Wyloguj</button>
+      </div>
     );
   }
   return (
-    <>
-      <Link to="/login" className="button button--secondary">Login</Link>
-      <Link to="/register" className="button button--secondary">Register</Link>
-    </>
+    <div className="auth-links">
+      <Link to="/login" className="nav-link">Zaloguj się</Link>
+      <Link to="/register" className="nav-link nav-link-primary">Załóż konto</Link>
+    </div>
   );
 }
 

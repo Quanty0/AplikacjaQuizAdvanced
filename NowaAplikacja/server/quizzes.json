@@ -546,18 +546,18 @@
     },
     {
       "id": "ang-2",
-      "category": "Angielski",
-      "difficulty": "Trudny",
-      "title": "Test",
+      "category": "IT",
+      "difficulty": "Łatwy",
+      "title": "Quiz o twórach",
       "questions": [
         {
           "id": 1,
-          "questionText": "aaaa",
+          "questionText": "Kto wykonał najwiecej pracy",
           "options": [
-            "aa",
-            "bbb"
+            "Dominik",
+            "inni"
           ],
-          "correctAnswer": "bbb"
+          "correctAnswer": "Dominik"
         }
       ]
     },

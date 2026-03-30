@@ -1,0 +1,880 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@quiz.pl",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "user@gmail.com",
+      "password": "user123",
+      "role": "user"
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "mat-1",
+      "category": "Matematyka",
+      "difficulty": "Łatwy",
+      "title": "Podstawowe działania",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Ile to jest 15 + 27?",
+          "options": [
+            "32",
+            "42",
+            "45",
+            "52"
+          ],
+          "correctAnswer": "42"
+        },
+        {
+          "id": 2,
+          "questionText": "Ile to jest 9 x 6?",
+          "options": [
+            "48",
+            "54",
+            "56",
+            "63"
+          ],
+          "correctAnswer": "54"
+        },
+        {
+          "id": 3,
+          "questionText": "Połowa z 150 to:",
+          "options": [
+            "65",
+            "70",
+            "75",
+            "80"
+          ],
+          "correctAnswer": "75"
+        },
+        {
+          "id": 4,
+          "questionText": "Ile minut ma godzina i kwadrans?",
+          "options": [
+            "65",
+            "70",
+            "75",
+            "85"
+          ],
+          "correctAnswer": "75"
+        },
+        {
+          "id": 5,
+          "questionText": "Która liczba jest parzysta?",
+          "options": [
+            "11",
+            "23",
+            "44",
+            "57"
+          ],
+          "correctAnswer": "44"
+        }
+      ]
+    },
+    {
+      "id": "mat-2",
+      "category": "Matematyka",
+      "difficulty": "Trudny",
+      "title": "Geometria i Logika",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Ile wynosi suma kątów w trójkącie?",
+          "options": [
+            "90°",
+            "180°",
+            "270°",
+            "360°"
+          ],
+          "correctAnswer": "180°"
+        },
+        {
+          "id": 2,
+          "questionText": "Pole kwadratu o boku 5 cm wynosi:",
+          "options": [
+            "10 cm²",
+            "20 cm²",
+            "25 cm²",
+            "50 cm²"
+          ],
+          "correctAnswer": "25 cm²"
+        },
+        {
+          "id": 3,
+          "questionText": "Ile krawędzi ma sześcian?",
+          "options": [
+            "6",
+            "8",
+            "10",
+            "12"
+          ],
+          "correctAnswer": "12"
+        },
+        {
+          "id": 4,
+          "questionText": "Liczba pierwsza to:",
+          "options": [
+            "4",
+            "9",
+            "13",
+            "15"
+          ],
+          "correctAnswer": "13"
+        },
+        {
+          "id": 5,
+          "questionText": "Wynik działania 2 + 2 * 2 to:",
+          "options": [
+            "4",
+            "6",
+            "8",
+            "10"
+          ],
+          "correctAnswer": "6"
+        }
+      ]
+    },
+    {
+      "id": "prog-1",
+      "category": "Programowanie",
+      "difficulty": "Łatwy",
+      "title": "Podstawy Webu",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Co oznacza skrót HTML?",
+          "options": [
+            "HyperText Markup Language",
+            "High Tech Modern Language",
+            "Hyperlink Text Mode",
+            "Home Tool Markup Language"
+          ],
+          "correctAnswer": "HyperText Markup Language"
+        },
+        {
+          "id": 2,
+          "questionText": "Który tag odpowiada za największy nagłówek?",
+          "options": [
+            "<head>",
+            "<h6>",
+            "<header>",
+            "<h1>"
+          ],
+          "correctAnswer": "<h1>"
+        },
+        {
+          "id": 3,
+          "questionText": "Jak zadeklarować zmienną w nowoczesnym JS?",
+          "options": [
+            "var",
+            "let",
+            "const",
+            "Obie odpowiedzi: let i const"
+          ],
+          "correctAnswer": "Obie odpowiedzi: let i const"
+        },
+        {
+          "id": 4,
+          "questionText": "Jaki kolor tła ustawi 'background-color: #000'?",
+          "options": [
+            "Biały",
+            "Czerwony",
+            "Niebieski",
+            "Czarny"
+          ],
+          "correctAnswer": "Czarny"
+        },
+        {
+          "id": 5,
+          "questionText": "Co robi komenda console.log()?",
+          "options": [
+            "Zamyka okno",
+            "Wyświetla tekst w konsoli",
+            "Czyści pamięć",
+            "Tworzy plik"
+          ],
+          "correctAnswer": "Wyświetla tekst w konsoli"
+        }
+      ]
+    },
+    {
+      "id": "prog-2",
+      "category": "Programowanie",
+      "difficulty": "Trudny",
+      "title": "Zaawansowany React i JS",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Czym jest Hook useState?",
+          "options": [
+            "Funkcją do zarządzania stanem",
+            "Klasą CSS",
+            "Typem danych",
+            "Tagiem HTML"
+          ],
+          "correctAnswer": "Funkcją do zarządzania stanem"
+        },
+        {
+          "id": 2,
+          "questionText": "Co to jest Closure (domknięcie)?",
+          "options": [
+            "Błąd w kodzie",
+            "Funkcja z dostępem do zasięgu zewnętrznego",
+            "Metoda zamykania bazy",
+            "Sposób na wyłączenie serwera"
+          ],
+          "correctAnswer": "Funkcja z dostępem do zasięgu zewnętrznego"
+        },
+        {
+          "id": 3,
+          "questionText": "Jaki jest wynik: typeof null?",
+          "options": [
+            "'null'",
+            "'undefined'",
+            "'object'",
+            "'string'"
+          ],
+          "correctAnswer": "'object'"
+        },
+        {
+          "id": 4,
+          "questionText": "Która metoda służy do renderowania list w React?",
+          "options": [
+            "filter()",
+            "find()",
+            "map()",
+            "forEach()"
+          ],
+          "correctAnswer": "map()"
+        },
+        {
+          "id": 5,
+          "questionText": "Do czego służy useEffect?",
+          "options": [
+            "Do stylizacji",
+            "Do efektów ubocznych (np. API)",
+            "Do tworzenia formularzy",
+            "Do usuwania plików"
+          ],
+          "correctAnswer": "Do efektów ubocznych (np. API)"
+        }
+      ]
+    },
+    {
+      "id": "geo-1",
+      "category": "Geografia",
+      "difficulty": "Łatwy",
+      "title": "Państwa i Miasta",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Stolica Polski to:",
+          "options": [
+            "Kraków",
+            "Wrocław",
+            "Warszawa",
+            "Gdańsk"
+          ],
+          "correctAnswer": "Warszawa"
+        },
+        {
+          "id": 2,
+          "questionText": "Na jakim kontynencie leży Brazylia?",
+          "options": [
+            "Afryka",
+            "Azja",
+            "Ameryka Południowa",
+            "Europa"
+          ],
+          "correctAnswer": "Ameryka Południowa"
+        },
+        {
+          "id": 3,
+          "questionText": "Która rzeka jest najdłuższa w Polsce?",
+          "options": [
+            "Odra",
+            "Warta",
+            "Wisła",
+            "Bug"
+          ],
+          "correctAnswer": "Wisła"
+        },
+        {
+          "id": 4,
+          "questionText": "W którym kraju leży Wieża Eiffla?",
+          "options": [
+            "Niemcy",
+            "Włochy",
+            "Francja",
+            "Hiszpania"
+          ],
+          "correctAnswer": "Francja"
+        },
+        {
+          "id": 5,
+          "questionText": "Ile kontynentów jest na Ziemi?",
+          "options": [
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          "correctAnswer": "7"
+        }
+      ]
+    },
+    {
+      "id": "geo-2",
+      "category": "Geografia",
+      "difficulty": "Trudny",
+      "title": "Szczyty i Rekordy",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Jak nazywa się najwyższy szczyt Ziemi?",
+          "options": [
+            "K2",
+            "Lhotse",
+            "Mount Everest",
+            "Makalu"
+          ],
+          "correctAnswer": "Mount Everest"
+        },
+        {
+          "id": 2,
+          "questionText": "Jakie jest najgłębsze jezioro świata?",
+          "options": [
+            "Wigry",
+            "Bajkał",
+            "Michigan",
+            "Kaspijskie"
+          ],
+          "correctAnswer": "Bajkał"
+        },
+        {
+          "id": 3,
+          "questionText": "Który kraj jest największy pod względem powierzchni?",
+          "options": [
+            "Chiny",
+            "USA",
+            "Kanada",
+            "Rosja"
+          ],
+          "correctAnswer": "Rosja"
+        },
+        {
+          "id": 4,
+          "questionText": "W którym państwie leży Pustynia Gobi?",
+          "options": [
+            "Egipt",
+            "Mongolia",
+            "Australia",
+            "Chile"
+          ],
+          "correctAnswer": "Mongolia"
+        },
+        {
+          "id": 5,
+          "questionText": "Jaka waluta obowiązuje w Japonii?",
+          "options": [
+            "Juan",
+            "Won",
+            "Jen",
+            "Dolar"
+          ],
+          "correctAnswer": "Jen"
+        }
+      ]
+    },
+    {
+      "id": "pop-1",
+      "category": "Popkultura",
+      "difficulty": "Łatwy",
+      "title": "Świat Filmu",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Kto jest głównym bohaterem serii Harry Potter?",
+          "options": [
+            "Ron Weasley",
+            "Harry Potter",
+            "Severus Snape",
+            "Albus Dumbledore"
+          ],
+          "correctAnswer": "Harry Potter"
+        },
+        {
+          "id": 2,
+          "questionText": "Jak nazywa się zielony ogr z popularnej bajki?",
+          "options": [
+            "Shrek",
+            "Fiona",
+            "Osioł",
+            "Lord Farquaad"
+          ],
+          "correctAnswer": "Shrek"
+        },
+        {
+          "id": 3,
+          "questionText": "Która wytwórnia stworzyła Myszkę Miki?",
+          "options": [
+            "Pixar",
+            "Warner Bros",
+            "Disney",
+            "DreamWorks"
+          ],
+          "correctAnswer": "Disney"
+        },
+        {
+          "id": 4,
+          "questionText": "W jakim mieście mieszka Batman?",
+          "options": [
+            "Metropolis",
+            "Gotham City",
+            "New York",
+            "Central City"
+          ],
+          "correctAnswer": "Gotham City"
+        },
+        {
+          "id": 5,
+          "questionText": "Jak ma na imię lalka, która doczekała się filmu w 2023 roku?",
+          "options": [
+            "Bratz",
+            "Barbie",
+            "Polly Pocket",
+            "Chucky"
+          ],
+          "correctAnswer": "Barbie"
+        }
+      ]
+    },
+    {
+      "id": "pop-2",
+      "category": "Popkultura",
+      "difficulty": "Trudny",
+      "title": "Historia i Ciekawostki",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Który film zdobył Oscara za najlepszy film w 2020 roku?",
+          "options": [
+            "1917",
+            "Joker",
+            "Parasite",
+            "Irlandczyk"
+          ],
+          "correctAnswer": "Parasite"
+        },
+        {
+          "id": 2,
+          "questionText": "Jak nazywa się reżyser filmu 'Incepcja'?",
+          "options": [
+            "Steven Spielberg",
+            "Quentin Tarantino",
+            "Christopher Nolan",
+            "Martin Scorsese"
+          ],
+          "correctAnswer": "Christopher Nolan"
+        },
+        {
+          "id": 3,
+          "questionText": "W którym roku wyszedł pierwszy iPhone?",
+          "options": [
+            "2005",
+            "2007",
+            "2009",
+            "2010"
+          ],
+          "correctAnswer": "2007"
+        },
+        {
+          "id": 4,
+          "questionText": "Z którego kraju pochodzi zespół ABBA?",
+          "options": [
+            "Norwegia",
+            "Dania",
+            "Szwecja",
+            "Finlandia"
+          ],
+          "correctAnswer": "Szwecja"
+        },
+        {
+          "id": 5,
+          "questionText": "Który serial Netflixa stał się najchętniej oglądanym w 2021 (Korea)?",
+          "options": [
+            "Dark",
+            "Lupin",
+            "Squid Game",
+            "The Crown"
+          ],
+          "correctAnswer": "Squid Game"
+        }
+      ]
+    },
+    {
+      "id": "ang-1",
+      "category": "Angielski",
+      "difficulty": "Średni",
+      "title": "Słówka",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Egg",
+          "options": [
+            "Jajko",
+            "Pies"
+          ],
+          "correctAnswer": "Jajko"
+        },
+        {
+          "id": 2,
+          "questionText": "Beef",
+          "options": [
+            "Wołowina",
+            "Wołowina to mięso"
+          ],
+          "correctAnswer": "Wołowina to mięso"
+        }
+      ]
+    },
+    {
+      "id": "ang-2",
+      "category": "IT",
+      "difficulty": "Łatwy",
+      "title": "Quiz o twórach",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Kto wykonał najwiecej pracy",
+          "options": [
+            "Dominik",
+            "inni"
+          ],
+          "correctAnswer": "Dominik"
+        }
+      ]
+    },
+    {
+      "id": "lit-1",
+      "category": "Literatura Polska",
+      "difficulty": "Średni",
+      "title": "Romantyzm",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Który poeta jest głównym reprezentantem Romantyzmu polskiego?",
+          "options": [
+            "Stanisław Wyspiański",
+            "Adam Mickiewicz",
+            "Bolesław Prus",
+            "Eliza Orzeszkowa"
+          ],
+          "correctAnswer": "Adam Mickiewicz"
+        },
+        {
+          "id": 2,
+          "questionText": "Jakie jest główne dzieło Adama Mickiewicza?",
+          "options": [
+            "Pan Tadeusz",
+            "Lalka",
+            "Krzyżacy",
+            "Quo Vadis"
+          ],
+          "correctAnswer": "Pan Tadeusz"
+        },
+        {
+          "id": 3,
+          "questionText": "W jakim wieku rozwijał się Romantyzm w Polsce?",
+          "options": [
+            "XVII wieku",
+            "XVIII wieku",
+            "XIX wieku",
+            "XX wieku"
+          ],
+          "correctAnswer": "XIX wieku"
+        },
+        {
+          "id": 4,
+          "questionText": "Kto napisał 'Dziady'?",
+          "options": [
+            "Juliusz Słowacki",
+            "Adam Mickiewicz",
+            "Zygmunt Krasiński",
+            "Cyprian Kamil Norwid"
+          ],
+          "correctAnswer": "Adam Mickiewicz"
+        },
+        {
+          "id": 5,
+          "questionText": "Jakie cechy charakteryzują literaturę romantyczną?",
+          "options": [
+            "Racjonalizm i porządek",
+            "Emocjonalność i uczucia",
+            "Dokładny opis rzeczywistości",
+            "Brak wyobraźni"
+          ],
+          "correctAnswer": "Emocjonalność i uczucia"
+        }
+      ]
+    },
+    {
+      "id": "lit-2",
+      "category": "Literatura Polska",
+      "difficulty": "Średni",
+      "title": "Realizm",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Które dzieło napisał Bolesław Prus?",
+          "options": [
+            "Quo Vadis",
+            "Lalka",
+            "Noce i dnie",
+            "Ferdydurke"
+          ],
+          "correctAnswer": "Lalka"
+        },
+        {
+          "id": 2,
+          "questionText": "Kto napisał 'Quo Vadis'?",
+          "options": [
+            "Eliza Orzeszkowa",
+            "Henryk Sienkiewicz",
+            "Bolesław Prus",
+            "Stefan Żeromski"
+          ],
+          "correctAnswer": "Henryk Sienkiewicz"
+        },
+        {
+          "id": 3,
+          "questionText": "Jaki jest główny temat powieści 'Lalka' Bolesława Prusa?",
+          "options": [
+            "Miłość w średniowiecznym zamku",
+            "Upadek warszawskiego kupca",
+            "Przygody rycerza",
+            "Walka z zakonami"
+          ],
+          "correctAnswer": "Upadek warszawskiego kupca"
+        },
+        {
+          "id": 4,
+          "questionText": "W jakim wieku rozwijał się Realizm w Polsce?",
+          "options": [
+            "XVI wieku",
+            "XVII wieku",
+            "XVIII wieku",
+            "XIX wieku"
+          ],
+          "correctAnswer": "XIX wieku"
+        },
+        {
+          "id": 5,
+          "questionText": "Jakie są główne cechy realizmu literackiego?",
+          "options": [
+            "Fantazja i magia",
+            "Dokładny opis rzeczywistości",
+            "Naukowe wytłumaczenie wszystkiego",
+            "Idealizacja natury"
+          ],
+          "correctAnswer": "Dokładny opis rzeczywistości"
+        }
+      ]
+    },
+    {
+      "id": "lit-3",
+      "category": "Literatura Polska",
+      "difficulty": "Średni",
+      "title": "Młoda Polska",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Który pisarz napisał 'Ferdydurke'?",
+          "options": [
+            "Witold Gombrowicz",
+            "Stanisław Wyspiański",
+            "Bolesław Leśmian",
+            "Karol Irzykowski"
+          ],
+          "correctAnswer": "Witold Gombrowicz"
+        },
+        {
+          "id": 2,
+          "questionText": "Kto napisał 'Wesele'?",
+          "options": [
+            "Witold Gombrowicz",
+            "Stanisław Wyspiański",
+            "Bolesław Leśmian",
+            "Stefan Żeromski"
+          ],
+          "correctAnswer": "Stanisław Wyspiański"
+        },
+        {
+          "id": 3,
+          "questionText": "W jakim okresie rozwijała się Młoda Polska?",
+          "options": [
+            "1870-1890",
+            "1890-1918",
+            "1918-1939",
+            "1945-1960"
+          ],
+          "correctAnswer": "1890-1918"
+        },
+        {
+          "id": 4,
+          "questionText": "Jakie są charakterystyczne cechy Młodej Polski?",
+          "options": [
+            "Klasycyzm i porządek",
+            "Pesymizm i dekadencja",
+            "Socrealizm i ideologia",
+            "Racjonalizm naukowy"
+          ],
+          "correctAnswer": "Pesymizm i dekadencja"
+        },
+        {
+          "id": 5,
+          "questionText": "Kto napisał 'Noce i dnie'?",
+          "options": [
+            "Maria Konopnicka",
+            "Gabriela Zapolska",
+            "Maria Dąbrowska",
+            "Zofia Nałkowska"
+          ],
+          "correctAnswer": "Maria Dąbrowska"
+        }
+      ]
+    },
+    {
+      "id": "lit-4",
+      "category": "Literatura Polska",
+      "difficulty": "Średni",
+      "title": "Międzywojnie",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Który poeta zaliczany jest do Awangardy?",
+          "options": [
+            "Julian Tuwim",
+            "Adam Mickiewicz",
+            "Bolesław Prus",
+            "Henryk Sienkiewicz"
+          ],
+          "correctAnswer": "Julian Tuwim"
+        },
+        {
+          "id": 2,
+          "questionText": "Kto napisał 'Chłopi'?",
+          "options": [
+            "Stefan Żeromski",
+            "Wacław Berent",
+            "Romain Rolland",
+            "Wladyslaw Stanislaw Reymont"
+          ],
+          "correctAnswer": "Wladyslaw Stanislaw Reymont"
+        },
+        {
+          "id": 3,
+          "questionText": "W jakim okresie znajduje się era Międzywojnia w Polsce?",
+          "options": [
+            "1889-1914",
+            "1918-1939",
+            "1945-1989",
+            "1989-2000"
+          ],
+          "correctAnswer": "1918-1939"
+        },
+        {
+          "id": 4,
+          "questionText": "Jakie są główne kierunki w literaturze Międzywojnia?",
+          "options": [
+            "Jedynie realizm",
+            "Awangarda i eksperymentalizm",
+            "Wyłącznie romantyzm",
+            "Romantyzm bez innowacji"
+          ],
+          "correctAnswer": "Awangarda i eksperymentalizm"
+        },
+        {
+          "id": 5,
+          "questionText": "Kto był autorem 'Nocy' (czasopismo literackie)?",
+          "options": [
+            "Julian Tuwim",
+            "Bolesław Leśmian",
+            "Leopold Staff",
+            "Jarosław Iwaszkiewicz"
+          ],
+          "correctAnswer": "Bolesław Leśmian"
+        }
+      ]
+    },
+    {
+      "id": "lit-5",
+      "category": "Literatura Polska",
+      "difficulty": "Średni",
+      "title": "Współczesna Literatura Polska",
+      "questions": [
+        {
+          "id": 1,
+          "questionText": "Który polski autor zdobył Nagrodę Nobla w 1996 roku?",
+          "options": [
+            "Czesław Miłosz",
+            "Wisława Szymborska",
+            "Tadeusz Konwicki",
+            "Paweł Huelle"
+          ],
+          "correctAnswer": "Wisława Szymborska"
+        },
+        {
+          "id": 2,
+          "questionText": "Kto napisał 'Cześć i chwała bohaterom'?",
+          "options": [
+            "Stanisław Lem",
+            "Jerzy Pilch",
+            "Paweł Huelle",
+            "Oriana Fallaci"
+          ],
+          "correctAnswer": "Stanisław Lem"
+        },
+        {
+          "id": 3,
+          "questionText": "Jakie dzieło napisała Wisława Szymborska przed zdobyciem Nobla?",
+          "options": [
+            "Sto pociech",
+            "Poeta do kwadratu",
+            "Wiersze wybrane",
+            "Wszystkie wymienione wyżej"
+          ],
+          "correctAnswer": "Wszystkie wymienione wyżej"
+        },
+        {
+          "id": 4,
+          "questionText": "Jakie są cechy współczesnej literatury polskiej?",
+          "options": [
+            "Powrót do romantyzmu",
+            "Różnorodność gatunków i stylów",
+            "Całkowita negacja tradycji",
+            "Brak innowacyjności"
+          ],
+          "correctAnswer": "Różnorodność gatunków i stylów"
+        },
+        {
+          "id": 5,
+          "questionText": "Które dzieło napisał Stanisław Lem?",
+          "options": [
+            "Solaris",
+            "Cyberiada",
+            "Bajki robotów",
+            "Wszystkie wymienione wyżej"
+          ],
+          "correctAnswer": "Wszystkie wymienione wyżej"
+        }
+      ]
+    }
+  ]
+}

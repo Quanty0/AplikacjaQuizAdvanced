@@ -1,20 +1,10 @@
 services:
   - type: web
-    name: quiz-app-backend
-    runtime: node
-    rootDir: NowaAplikacja/server
-    buildCommand: npm install
-    startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-
-  - type: web
-    name: quiz-app-frontend
+    name: quiz-app-full
     runtime: node
     rootDir: NowaAplikacja
-    buildCommand: npm install && npm run build
-    startCommand: npm run preview
+    buildCommand: npm install && npm run build && cd server && npm install
+    startCommand: cd server && npm start
     envVars:
       - key: NODE_ENV
         value: production

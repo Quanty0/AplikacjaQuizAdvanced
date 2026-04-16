@@ -251,6 +251,14 @@ app.delete('/api/quizzes/:id', async (req, res) => {
   }
 });
 
+// Serwowanie aplikacji frontendowej
+const frontendDist = path.join(__dirname, '../dist');
+app.use(express.static(frontendDist));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(frontendDist, 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

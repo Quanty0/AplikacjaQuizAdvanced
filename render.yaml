@@ -9,8 +9,12 @@ services:
       - key: NODE_ENV
         value: production
 
-  - type: static
+  - type: web
     name: quiz-app-frontend
-    rootDir: NowaAplikacja/dist
-    buildCommand: cd NowaAplikacja && npm install && npm run build
-    publishPath: ./
+    runtime: node
+    rootDir: NowaAplikacja
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    envVars:
+      - key: NODE_ENV
+        value: production

@@ -159,12 +159,15 @@ select {
   padding-right: 36px;
 }
 
+<<<<<<< HEAD
 select option {
   background-color: #0b1220;
   color: #f8fafc;
   padding: 8px 12px;
 }
 
+=======
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

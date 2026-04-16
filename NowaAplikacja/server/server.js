@@ -14,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Helper functions to manage quizzes.json
+<<<<<<< HEAD
 async function loadData() {
   try {
     const data = await fs.readFile(QUIZZES_FILE, 'utf-8');
@@ -23,6 +24,8 @@ async function loadData() {
   }
 }
 
+=======
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
 async function loadQuizzes() {
   try {
     const data = await fs.readFile(QUIZZES_FILE, 'utf-8');
@@ -43,6 +46,7 @@ async function saveQuizzes(data) {
   }
 }
 
+<<<<<<< HEAD
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { name, email, password, isAdmin } = req.body;
@@ -116,6 +120,8 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
+=======
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
 // Get all quizzes
 app.get('/api/quizzes', async (req, res) => {
   try {
@@ -132,7 +138,11 @@ app.get('/api/quizzes', async (req, res) => {
     res.json(quizzes);
   } catch (error) {
     console.error('Error loading quizzes:', error);
+<<<<<<< HEAD
     res.status(500).json({ error: 'Nie udało się załadować quizów' });
+=======
+    res.status(500).json({ error: 'Failed to load quizzes' });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
   }
 });
 
@@ -143,11 +153,19 @@ app.get('/api/quizzes/:id', async (req, res) => {
     const quizzes = Array.isArray(data) ? data : (data.quizzes || []);
     const quiz = quizzes.find(q => q.id === req.params.id);
     if (!quiz) {
+<<<<<<< HEAD
       return res.status(404).json({ error: 'Quiz nie znaleziony' });
     }
     res.json(quiz);
   } catch (error) {
     res.status(500).json({ error: 'Nie udało się załadować quizu' });
+=======
+      return res.status(404).json({ error: 'Quiz not found' });
+    }
+    res.json(quiz);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to load quiz' });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
   }
 });
 
@@ -183,7 +201,11 @@ app.post('/api/quizzes', async (req, res) => {
     res.status(201).json(newQuiz);
   } catch (error) {
     console.error('Error adding quiz:', error);
+<<<<<<< HEAD
     res.status(500).json({ error: 'Nie udało się dodać quizu', details: error.message });
+=======
+    res.status(500).json({ error: 'Failed to add quiz', details: error.message });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
   }
 });
 
@@ -204,7 +226,11 @@ app.put('/api/quizzes/:id', async (req, res) => {
     
     const index = quizzes.findIndex(q => q.id === req.params.id);
     if (index === -1) {
+<<<<<<< HEAD
       return res.status(404).json({ error: 'Quiz nie znaleziony' });
+=======
+      return res.status(404).json({ error: 'Quiz not found' });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
     quizzes[index] = updatedQuiz;
     
@@ -216,7 +242,11 @@ app.put('/api/quizzes/:id', async (req, res) => {
     
     res.json(updatedQuiz);
   } catch (error) {
+<<<<<<< HEAD
     res.status(500).json({ error: 'Nie udało się zaktualizować quizu' });
+=======
+    res.status(500).json({ error: 'Failed to update quiz' });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
   }
 });
 
@@ -236,7 +266,11 @@ app.delete('/api/quizzes/:id', async (req, res) => {
     
     const filteredQuizzes = quizzes.filter(q => q.id !== req.params.id);
     if (filteredQuizzes.length === quizzes.length) {
+<<<<<<< HEAD
       return res.status(404).json({ error: 'Quiz nie znaleziony' });
+=======
+      return res.status(404).json({ error: 'Quiz not found' });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
     
     if (isArrayFormat) {
@@ -247,7 +281,11 @@ app.delete('/api/quizzes/:id', async (req, res) => {
     
     res.json({ success: true });
   } catch (error) {
+<<<<<<< HEAD
     res.status(500).json({ error: 'Nie udało się usunąć quizu' });
+=======
+    res.status(500).json({ error: 'Failed to delete quiz' });
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
   }
 });
 

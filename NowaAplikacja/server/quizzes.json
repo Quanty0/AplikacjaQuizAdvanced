@@ -11,6 +11,7 @@
       "email": "user@gmail.com",
       "password": "user123",
       "role": "user"
+<<<<<<< HEAD
     },
     {
       "id": 3,
@@ -25,6 +26,8 @@
       "email": "abc@o2.pl",
       "password": "abc",
       "role": "admin"
+=======
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
   ],
   "quizzes": [
@@ -889,6 +892,7 @@
           "correctAnswer": "Wszystkie wymienione wyżej"
         }
       ]
+<<<<<<< HEAD
     },
     {
       "title": "Najlepsza osoba",
@@ -919,6 +923,8 @@
         }
       ],
       "id": "quiz-1776268191682"
+=======
+>>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
   ]
 }

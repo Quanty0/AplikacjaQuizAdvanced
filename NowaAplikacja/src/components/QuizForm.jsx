@@ -64,11 +64,7 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
     }
   };
 
-<<<<<<< HEAD
   const handleSubmit = async e => {
-=======
-  const handleSubmit = e => {
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     e.preventDefault();
     
     // Validate that all fields are filled
@@ -84,22 +80,14 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
       );
     
     if (!isValid) {
-<<<<<<< HEAD
       alert('Wypełnij wszystkie pola. Każde pytanie musi mieć tekst, co najmniej 2 opcje odpowiedzi i prawidłową odpowiedź, która pasuje do jednej z opcji.');
-=======
-      alert('Please fill in all fields. Each question must have text, at least 2 options, and a correct answer that matches one of the options.');
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
       return;
     }
     
     const quiz = initialQuiz 
       ? { ...initialQuiz, title, category, difficulty, questions } 
       : { title, category, difficulty, questions };
-<<<<<<< HEAD
     await onAdd(quiz);
-=======
-    onAdd(quiz);
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     if (!initialQuiz) {
       setTitle('');
       setCategory('');
@@ -110,79 +98,44 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
 
   return (
     <form onSubmit={handleSubmit} className="quiz-form">
-<<<<<<< HEAD
       <h3>Podstawowe Informacje</h3>
       <div className="form-row">
         <div className="form-group">
           <label>Tytuł Quizu *</label>
-=======
-      <h3>Basic Information</h3>
-      <div className="form-row">
-        <div className="form-group">
-          <label>Quiz Title *</label>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
           <input 
             type="text" 
             value={title} 
             onChange={e => setTitle(e.target.value)} 
-<<<<<<< HEAD
             placeholder="np. Matematyka Podstawowa"
-=======
-            placeholder="e.g., Mathematics Basics"
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
             required 
           />
         </div>
         <div className="form-group">
-<<<<<<< HEAD
           <label>Kategoria *</label>
-=======
-          <label>Category *</label>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
           <input 
             type="text" 
             value={category} 
             onChange={e => setCategory(e.target.value)} 
-<<<<<<< HEAD
             placeholder="np. Matematyka"
-=======
-            placeholder="e.g., Matematyka"
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
             required 
           />
         </div>
         <div className="form-group">
-<<<<<<< HEAD
           <label>Trudność *</label>
           <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
             <option value="Łatwy">Łatwy</option>
             <option value="Średni">Średni</option>
             <option value="Trudny">Trudny</option>
-=======
-          <label>Difficulty *</label>
-          <select value={difficulty} onChange={e => setDifficulty(e.target.value)}>
-            <option value="Łatwy">Łatwy (Easy)</option>
-            <option value="Średni">Średni (Medium)</option>
-            <option value="Trudny">Trudny (Hard)</option>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
           </select>
         </div>
       </div>
 
-<<<<<<< HEAD
       <h3>Pytania</h3>
-=======
-      <h3>Questions</h3>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
       <div className="questions">
         {questions.map((q, qIdx) => (
           <div key={qIdx} className="question-block">
             <div className="question-header">
-<<<<<<< HEAD
               <label>Pytanie {qIdx + 1}</label>
-=======
-              <label>Question {qIdx + 1}</label>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
               {questions.length > 1 && (
                 <button type="button" onClick={() => removeQuestion(qIdx)} className="remove-btn-small">✕</button>
               )}
@@ -191,20 +144,12 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
               type="text"
               value={q.questionText}
               onChange={e => handleQuestionChange(qIdx, e.target.value)}
-<<<<<<< HEAD
               placeholder="Wpisz tekst pytania"
-=======
-              placeholder="Enter question text"
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
               required
             />
             
             <div className="options-section">
-<<<<<<< HEAD
               <label>Opcje Odpowiedzi *</label>
-=======
-              <label>Answer Options *</label>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
               {q.options.map((opt, optIdx) => (
                 <div key={optIdx} className="option-item">
                   <input
@@ -219,11 +164,7 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
                     type="text"
                     value={opt}
                     onChange={e => handleOptionChange(qIdx, optIdx, e.target.value)}
-<<<<<<< HEAD
                     placeholder={`Opcja ${optIdx + 1}`}
-=======
-                    placeholder={`Option ${optIdx + 1}`}
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
                     required
                   />
                   {q.options.length > 2 && (
@@ -232,23 +173,14 @@ export default function QuizForm({ onAdd, initialQuiz = null }) {
                 </div>
               ))}
             </div>
-<<<<<<< HEAD
             <button type="button" onClick={() => addOption(qIdx)} className="small-btn">+ Dodaj Opcję</button>
-=======
-            <button type="button" onClick={() => addOption(qIdx)} className="small-btn">+ Add Option</button>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
           </div>
         ))}
       </div>
 
       <div className="form-actions">
-<<<<<<< HEAD
         <button type="button" onClick={addQuestion} className="small-btn">+ Dodaj Pytanie</button>
         <button type="submit" className="submit-btn">{initialQuiz ? 'Aktualizuj Quiz' : 'Utwórz Quiz'}</button>
-=======
-        <button type="button" onClick={addQuestion} className="small-btn">+ Add Question</button>
-        <button type="submit" className="submit-btn">{initialQuiz ? 'Update Quiz' : 'Create Quiz'}</button>
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
       </div>
     </form>
   );

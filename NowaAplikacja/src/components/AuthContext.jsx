@@ -7,18 +7,6 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
-<<<<<<< HEAD
-=======
-function loadUsers() {
-  const json = localStorage.getItem('users');
-  return json ? JSON.parse(json) : [];
-}
-
-function saveUsers(users) {
-  localStorage.setItem('users', JSON.stringify(users));
-}
-
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [quizzes, setQuizzes] = useState([]);
@@ -26,14 +14,7 @@ export function AuthProvider({ children }) {
   // Load quizzes from API on mount
   useEffect(() => {
     fetchQuizzes();
-<<<<<<< HEAD
     // Restore logged in user if any
-=======
-  }, []);
-
-  // Restore logged in user if any
-  useEffect(() => {
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     const json = localStorage.getItem('currentUser');
     if (json) {
       try {
@@ -54,7 +35,6 @@ export function AuthProvider({ children }) {
     }
   };
 
-<<<<<<< HEAD
   const register = async ({ name, email, password, isAdmin = false }) => {
     try {
       const response = await fetch(`${API_URL}/auth/register`, {
@@ -97,28 +77,6 @@ export function AuthProvider({ children }) {
     } catch (error) {
       throw error;
     }
-=======
-  const register = ({ name, email, password, isAdmin = false }) => {
-    const users = loadUsers();
-    if (users.find(u => u.email === email)) {
-      throw new Error('Email already registered');
-    }
-    const newUser = { name, email, password, isAdmin };
-    users.push(newUser);
-    saveUsers(users);
-    setUser(newUser);
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-  };
-
-  const login = ({ email, password }) => {
-    const users = loadUsers();
-    const existing = users.find(u => u.email === email && u.password === password);
-    if (!existing) {
-      throw new Error('Invalid credentials');
-    }
-    setUser(existing);
-    localStorage.setItem('currentUser', JSON.stringify(existing));
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
   };
 
   const logout = () => {
@@ -130,11 +88,7 @@ export function AuthProvider({ children }) {
     try {
       // Validate quiz structure
       if (!quiz.title || !quiz.questions || quiz.questions.length === 0) {
-<<<<<<< HEAD
         alert('Quiz musi mieć tytuł i co najmniej jedno pytanie');
-=======
-        alert('Quiz must have a title and at least one question');
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
         return;
       }
       
@@ -158,7 +112,6 @@ export function AuthProvider({ children }) {
         const newQuiz = await response.json();
         console.log('Quiz added successfully:', newQuiz);
         setQuizzes([...quizzes, newQuiz]);
-<<<<<<< HEAD
         alert('Quiz dodany pomyślnie!');
       } else {
         const error = await response.json();
@@ -168,36 +121,21 @@ export function AuthProvider({ children }) {
     } catch (error) {
       console.error('Failed to add quiz:', error);
       alert('Błąd podczas dodawania quizu: ' + error.message);
-=======
-        alert('Quiz added successfully!');
-      } else {
-        const error = await response.json();
-        console.error('Server error:', error);
-        alert('Failed to add quiz: ' + (error.error || 'Unknown error'));
-      }
-    } catch (error) {
-      console.error('Failed to add quiz:', error);
-      alert('Error adding quiz: ' + error.message);
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
   };
 
   const updateQuiz = async updatedQuiz => {
     try {
-<<<<<<< HEAD
       if (!updatedQuiz.title || !updatedQuiz.questions || updatedQuiz.questions.length === 0) {
         alert('Quiz musi mieć tytuł i co najmniej jedno pytanie');
         return false;
       }
 
-=======
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
       const response = await fetch(`${API_URL}/quizzes/${updatedQuiz.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedQuiz),
       });
-<<<<<<< HEAD
 
       if (response.ok) {
         const newQuizzes = quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q);
@@ -214,14 +152,6 @@ export function AuthProvider({ children }) {
       console.error('Failed to update quiz:', error);
       alert('Błąd podczas aktualizacji quizu: ' + error.message);
       return false;
-=======
-      if (response.ok) {
-        const newQuizzes = quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q);
-        setQuizzes(newQuizzes);
-      }
-    } catch (error) {
-      console.error('Failed to update quiz:', error);
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
   };
 
@@ -233,7 +163,6 @@ export function AuthProvider({ children }) {
       if (response.ok) {
         const newQuizzes = quizzes.filter(q => q.id !== id);
         setQuizzes(newQuizzes);
-<<<<<<< HEAD
         alert('Quiz usunięty pomyślnie!');
         return true;
       } else {
@@ -245,11 +174,6 @@ export function AuthProvider({ children }) {
       console.error('Failed to delete quiz:', error);
       alert('Błąd podczas usuwania quizu: ' + error.message);
       return false;
-=======
-      }
-    } catch (error) {
-      console.error('Failed to delete quiz:', error);
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
     }
   };
 

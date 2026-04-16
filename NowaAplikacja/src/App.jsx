@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react'
-=======
-import { useState } from 'react'
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,7 +15,6 @@ import QuizPlayer from './components/QuizPlayer'
 
 function Home() {
   const { user, logout, quizzes } = useAuth()
-<<<<<<< HEAD
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [sortedQuizzes, setSortedQuizzes] = useState([])
 
@@ -37,8 +32,6 @@ function Home() {
 
   const categories = Object.keys(sortedQuizzes).sort()
   const displayedQuizzes = selectedCategory ? sortedQuizzes[selectedCategory] : quizzes
-=======
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
 
   return (
     <div className="home-container">
@@ -90,7 +83,6 @@ function Home() {
             <h2>Dostępne Quizy</h2>
             <p className="section-subtitle">Wybierz quiz i sprawdź swoją wiedzę</p>
           </div>
-<<<<<<< HEAD
           
           {categories.length > 0 && (
             <div className="categories-filter">
@@ -114,10 +106,6 @@ function Home() {
           
           <div className="quiz-grid">
             {displayedQuizzes.map(q => (
-=======
-          <div className="quiz-grid">
-            {quizzes.map(q => (
->>>>>>> 6712cf54f095b36b1423cef33b38c5818cdbc37f
               <div key={q.id} className="quiz-card-new">
                 <div className="card-category">
                   <span className="category-tag">{q.category || 'Ogólne'}</span>

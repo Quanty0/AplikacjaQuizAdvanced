@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: quiz-app-frontend
+    runtime: node
+    buildCommand: cd NowaAplikacja && npm install && npm run build
+    startCommand: cd NowaAplikacja && npm run preview
+    envVars:
+      - key: NODE_ENV
+        value: production
+    routes:
+      - path: /
+        destination: /index.html
+      - path: /api
+        destination: http://quiz-app-backend:3001/api
+
+  - type: web
+    name: quiz-app-backend
+    runtime: node
+    rootDir: NowaAplikacja/server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+    routes:
+      - path: /api
